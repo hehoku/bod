@@ -16,7 +16,7 @@ devDependencies:
     specifier: ^18.11.18
     version: 18.16.3
   '@types/react':
-    specifier: ^18.0.26
+    specifier: ^18.2.0
     version: 18.2.0
   autoprefixer:
     specifier: ^10.4.7
