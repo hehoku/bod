@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Settings } from "react-feather";
+import { motion } from "framer-motion";
 
 function Home() {
   return (
@@ -11,9 +12,7 @@ function Home() {
       </Head>
       <div className="flex w-full flex-col items-center justify-center gap-20 text-center text-2xl">
         <p className="text-2xl font-bold">AoA</p>
-        <div className="flex h-48 w-48 cursor-pointer items-center justify-center rounded-full bg-gray-300">
-          <p className="cursor-pointer">开始工作</p>
-        </div>
+        <BreatheCircle />
       </div>
       <div className="mt-10 flex w-full flex-wrap justify-center">
         <Link href="/next">
@@ -26,5 +25,28 @@ function Home() {
     </React.Fragment>
   );
 }
+
+
+const BreatheCircle = () => {
+  return (
+    <div className="flex items-center justify-center">
+      <div className="relative w-48 h-48 cursor-pointer">
+        <motion.div
+          className="-z-1 absolute h-48 w-48 rounded-full bg-gray-300"
+          style={{ transformOrigin: "center" }}
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-xl font-bold text-black">
+          开始工作
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;
