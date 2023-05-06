@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Settings } from "react-feather";
-import { motion } from "framer-motion";
 import BreatheCircle from "./components/BreatheCircle";
 
 function Home() {
