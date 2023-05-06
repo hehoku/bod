@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Settings } from "react-feather";
 import { motion } from "framer-motion";
+import BreatheCircle from "./components/BreatheCircle";
 
 function Home() {
   return (
@@ -14,7 +15,7 @@ function Home() {
         <p className="text-2xl font-bold">AoA</p>
         <Link href="/log">
           <div>
-            <BreatheCircle />
+            <BreatheCircle innerText="开始工作" />
           </div>
         </Link>
       </div>
@@ -28,26 +29,6 @@ function Home() {
   );
 }
 
-const BreatheCircle = () => {
-  return (
-    <div className="flex items-center justify-center">
-      <div className="relative h-48 w-48 cursor-pointer">
-        <motion.div
-          className="-z-1 absolute h-48 w-48 rounded-full bg-gray-300"
-          style={{ transformOrigin: "center" }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-xl font-bold text-black">
-          开始工作
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 export default Home;
