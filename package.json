@@ -14,7 +14,8 @@
     "electron-serve": "^1.1.0",
     "electron-store": "^8.1.0",
     "framer-motion": "^10.12.6",
-    "react-feather": "^2.0.10"
+    "react-feather": "^2.0.10",
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

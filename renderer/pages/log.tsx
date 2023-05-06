@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Settings } from "react-feather";
 import { motion } from "framer-motion";
+import useTimerStore from "./store/timerStore";
 
-function Log() {
+function Log(): JSX.Element {
+  const { seconds } = useTimerStore();
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      useTimerStore.setState((state) => ({ seconds: state.seconds + 1 }));
+    }, 1000);
+    return () => clearInterval(timerId);
+  }, []);
+
   return (
     <React.Fragment>
       <Head>
@@ -12,9 +22,10 @@ function Log() {
       </Head>
       <div className="flex w-full flex-col items-center justify-center gap-20 text-center text-2xl">
         <Link href="/home">
-          <p className="text-2xl font-bold cursor-pointer">AoA</p>
+          <p className="cursor-pointer text-2xl font-bold">AoA</p>
         </Link>
         <BreatheCircle />
+        <p>{seconds}</p>
       </div>
       <div className="mt-10 flex w-full flex-wrap justify-center">Log Page</div>
       <div className="absolute bottom-10 left-10 cursor-pointer">
